@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PageResponseDTO<E> { //제네릭. 타입을 나중에 결정한다
+public class PageResponseDTO<E> {
 
     private List<E> dtoList;
     private int count;

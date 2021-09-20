@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/board/*")
+@RequestMapping("/saleboard/*")
 @Log4j2
 @RequiredArgsConstructor
 public class SaleBoardController {
@@ -47,7 +47,7 @@ public class SaleBoardController {
 
         redirectAttributes.addFlashAttribute("result", sno);
 
-        return "redirect:/board/list";
+        return "redirect:/saleboard/list";
 
     }
 
@@ -77,13 +77,13 @@ public class SaleBoardController {
 
     }
 
-    @GetMapping("/read")
-    public void read(Long sno, PageResponseDTO pageResponseDTO, Model model) {
+    @GetMapping(value = {"/read", "/modify"})
+    public void read(Long sno, PageRequestDTO pageRequestDTO, Model model) {
 
         log.info("c      read " + sno);
-        log.info("c      read " + pageResponseDTO);
+        log.info("c      read " + pageRequestDTO);
 
-        model.addAttribute("boardDTO", saleBoardService.read(sno));
+        model.addAttribute("saleBoardDTO", saleBoardService.read(sno));
 
     }
 

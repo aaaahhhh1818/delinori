@@ -35,6 +35,5 @@ public class PageRequestDTO {
     public String[] getArr() {
         return type == null? new String[]{}: type.split("");
     }
-    //빈 배열 주는 이유 : null들어가면 sql에서 에러나기 때문
 
 }

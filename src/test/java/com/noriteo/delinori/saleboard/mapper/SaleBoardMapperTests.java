@@ -2,6 +2,7 @@ package com.noriteo.delinori.saleboard.mapper;
 
 import com.noriteo.delinori.common.config.RootConfig;
 import com.noriteo.delinori.common.dto.PageRequestDTO;
+import com.noriteo.delinori.common.dto.PageResponseDTO;
 import com.noriteo.delinori.saleboard.config.SaleBoardRootConfig;
 import com.noriteo.delinori.saleboard.domain.SaleBoard;
 import com.noriteo.delinori.saleboard.dto.SaleBoardDTO;
@@ -51,6 +52,7 @@ public class SaleBoardMapperTests {
         List<SaleBoardDTO> saleBoardDTOList = saleBoardMapper.getList(pageRequestDTO).stream().map(saleBoard -> saleBoard.getDTO()).collect(Collectors.toList());
 
         int count = saleBoardMapper.getCount(pageRequestDTO);
+
 
     }
 

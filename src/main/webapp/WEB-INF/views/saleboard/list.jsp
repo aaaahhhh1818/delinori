@@ -8,7 +8,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">중고거래 게시판</h1>
-        <a href="/board/register" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">글쓰기</a>
+        <a href="/saleboard/register" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">글쓰기</a>
     </div>
 
     <!-- DataTales Example -->
@@ -65,8 +65,8 @@
                         <ul class="pagination">
 
                             <c:if test="${pageMaker.prev}">
-                                <li class="paginate_button page-item previous disabled" id="dataTable_previous">
-                                    <a href="javascript:movePage(${pageMaker.star -1})" class="page-link">Previous</a>
+                                <li class="paginate_button page-item previous" id="dataTable_previous">
+                                    <a href="javascript:movePage(${pageMaker.start -1})" class="page-link">Previous</a>
                                 </li>
                             </c:if>
                             <c:forEach begin="${pageMaker.start}" end="${pageMaker.end}" var="num">
@@ -114,7 +114,7 @@
 </div>
 <!-- Modal End -->
 
-<form id="actionForm" action="/board/list" method="get">
+<form id="actionForm" action="/saleboard/list" method="get">
     <input type="hidden" name="page" value="${pageMaker.page}">
     <input type="hidden" name="size" value="${pageMaker.size}">
 
@@ -135,12 +135,12 @@
 
     if (result && result !== '') {
         $('#submitModal').modal('show')
-        window.history.replaceState(null, '', '/board/list')
+        window.history.replaceState(null, '', '/saleboard/list')
     }
 
     function moveRead(sno) {
 
-        actionForm.setAttribute("action", "/board/read")
+        actionForm.setAttribute("action", "/saleboard/read")
         actionForm.innerHTML += `<input type='hidden' name='sno' value='\${sno}'>`
         actionForm.submit()
 

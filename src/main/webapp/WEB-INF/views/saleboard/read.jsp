@@ -16,24 +16,24 @@
                         <label for="title">Sno</label>
                         <div class="form-group">
                             <input type="text" name="sno" class="form-control form-control-user" id="sno"
-                                   value="<c:out value="${boardDTO.sno}"></c:out>"
+                                   value="<c:out value="${saleBoardDTO.sno}"></c:out>"
                                    placeholder="sno" readonly>
                         </div>
                         <label for="title">Title</label>
                         <div class="form-group">
                             <input type="text" name="title" class="form-control form-control-user" id="title"
-                                   value="<c:out value="${boardDTO.title}"></c:out>"
+                                   value="<c:out value="${saleBoardDTO.title}"></c:out>"
                                    placeholder="title" readonly>
                         </div>
                         <label for="writer">Writer</label>
                         <div class="form-group">
                             <input type="text" name="writer" class="form-control form-control-user" id="writer"
-                                   value="<c:out value="${boardDTO.writer}"></c:out>"
+                                   value="<c:out value="${saleBoardDTO.writer}"></c:out>"
                                    placeholder="writer" readonly>
                         </div>
                         <label for="content">Content</label>
                         <div class="form-group">
-                                <textarea name="content" class="form-control form-control-user" id="content" disabled><c:out value="${boardDTO.content}"></c:out></textarea>
+                                <textarea name="content" class="form-control form-control-user" id="content" disabled><c:out value="${saleBoardDTO.content}"></c:out></textarea>
                         </div>
                         <div>
                             <button type="button" class="btn btn-primary btn-user btn-block btnList">LIST</button>
@@ -47,11 +47,11 @@
 
 </div>
 
-<form id="actionForm" action="/board/list" method="get">
+<form id="actionForm" action="/saleboard/list" method="get">
     <input type="hidden" name="page" value="${pageRequestDTO.page}">
     <input type="hidden" name="size" value="${pageRequestDTO.size}">
 
-    <c:if test="${pageRequestDTO.type != null}"> <!--검색조건이 있을때는 붙고 없을때는 떨어져-->
+    <c:if test="${pageRequestDTO.type != null}">
         <input type="hidden" name="type" value="${pageRequestDTO.type}">
         <input type="hidden" name="keyword" value="${pageRequestDTO.keyword}">
     </c:if>
@@ -62,15 +62,17 @@
 
 <script>
 
-    const actionForm = document.querySelector("#actionForm") //document.querySelector 계속 안쓰려고 미리 만들어 놓는 것
+    const actionForm = document.querySelector("#actionForm")
 
-    document.querySelector(".btnList").addEventListener("click", () => {actionForm.submit()}, false)
+    document.querySelector(".btnList").addEventListener("click", () => {
+        actionForm.submit()
+    }, false)
 
     document.querySelector(".btnMod").addEventListener("click", () => {
 
-        const sno = '${boardDTO.sno}'
+        const sno = '${saleBoardDTO.sno}'
 
-        actionForm.setAttribute("action", "/board/modify")
+        actionForm.setAttribute("action", "/saleboard/modify")
         actionForm.innerHTML += `<input type='hidden' name='sno' value='\${sno}'>`
         actionForm.submit()
     }, false)

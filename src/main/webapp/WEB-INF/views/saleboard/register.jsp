@@ -13,7 +13,7 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">SALEBOARD REGISTER</h1>
                         </div>
-                        <form id="form1" action="/board/register" method="post">
+                        <form id="form1" action="/saleboard/register" method="post">
                             <div class="form-group">
                                 <label for="title">Title</label>
                                 <input type="text" name="title" class="form-control form-control-user" id="title"
