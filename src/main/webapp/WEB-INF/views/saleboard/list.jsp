@@ -36,7 +36,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-6">
+                    <div class="col-sm-12 col-md-6 align-items-end">
                         <div class="dataTables_length" id="dataTable_filter">
                             <!-- 검색처리 -->
                             <form action="/saleboard/list" method="get"
@@ -154,6 +154,16 @@
     </div>
 </div>
 <!-- Modal End -->
+
+<form id="actionForm" action="/board/list" method="get">
+    <input type="hidden" name="page" value="${pageMaker.page}">
+    <input type="hidden" name="size" value="${pageMaker.size}">
+
+    <c:if test="${pageRequestDTO.type != null}"> <!--검색조건이 있을때는 붙고 없을때는 떨어져-->
+        <input type="hidden" name="type" value="${pageRequestDTO.type}">
+        <input type="hidden" name="keyword" value="${pageRequestDTO.keyword}">
+    </c:if>
+</form>
 
 <!--푸터 붙여넣기( 앞으로 이거 긁어 쓰세요 ) -->
 <%@ include file="../includes/footer.jsp" %>

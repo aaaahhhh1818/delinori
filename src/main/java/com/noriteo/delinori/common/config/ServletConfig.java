@@ -1,6 +1,7 @@
 package com.noriteo.delinori.common.config;
 
 import com.noriteo.delinori.common.converter.StringToLocalDateTimeConverter;
+import com.noriteo.delinori.reply.config.ReplyServletConfig;
 import com.noriteo.delinori.saleboard.config.SaleBoardServletConfig;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
@@ -14,7 +15,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
 @ComponentScan(basePackages = "com.noriteo.delinori.common.exception")
-@Import(SaleBoardServletConfig.class)
+@Import({SaleBoardServletConfig.class, ReplyServletConfig.class})
 public class ServletConfig implements WebMvcConfigurer {
 
     @Override

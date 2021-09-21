@@ -1,5 +1,6 @@
 package com.noriteo.delinori.common.config;
 
+import com.noriteo.delinori.reply.config.ReplyRootConfig;
 import com.noriteo.delinori.saleboard.config.SaleBoardRootConfig;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -16,7 +17,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
-@Import(SaleBoardRootConfig.class)
+@Import({SaleBoardRootConfig.class, ReplyRootConfig.class})
 public class RootConfig {
 
     @Bean //mybatis 연결
