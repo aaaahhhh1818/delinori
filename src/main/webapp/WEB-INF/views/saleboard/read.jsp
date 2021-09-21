@@ -13,6 +13,14 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">SALEBOARD READ</h1>
                         </div>
+                        <form id="form1"> <%--실제로 날라가는애--%>
+                            <input type="hidden" name="page" value="${pageRequestDTO.page}">
+                            <input type="hidden" name="size" value="${pageRequestDTO.size}">
+
+                            <c:if test="${pageRequestDTO.type != null}">
+                            <input type="hidden" name="type" value="${pageRequestDTO.type}">
+                            <input type="hidden" name="keyword" value="${pageRequestDTO.keyword}">
+                            </c:if>
                         <label for="title">Sno</label>
                         <div class="form-group">
                             <input type="text" name="sno" class="form-control form-control-user" id="sno"
@@ -38,7 +46,9 @@
                         <div>
                             <button type="button" class="btn btn-primary btn-user btn-block btnList">LIST</button>
                             <button type="button" class="btn btn-success btn-user btn-block btnMod">MODIFY</button>
+                            <button type="button" class="btn btn-danger btn-user btn-block btnDel">DELETE</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -62,6 +72,7 @@
 
 <script>
 
+    const form = document.querySelector("#form1")
     const actionForm = document.querySelector("#actionForm")
 
     document.querySelector(".btnList").addEventListener("click", () => {
@@ -76,6 +87,16 @@
         actionForm.innerHTML += `<input type='hidden' name='sno' value='\${sno}'>`
         actionForm.submit()
     }, false)
+
+    document.querySelector(".btnDel").addEventListener("click", (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+
+        form.setAttribute("action","/saleboard/remove")
+        form.setAttribute("method","post")
+        form.submit()
+
+    },false)
 
 </script>
 

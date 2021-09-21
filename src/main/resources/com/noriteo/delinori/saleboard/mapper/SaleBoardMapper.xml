@@ -46,4 +46,8 @@
         select * from tbl_saleboard where sno = #{sno}
     </select>
 
+    <delete id="delete">
+        delete from tbl_saleboard where sno = #{sno}
+    </delete>
+
 </mapper>

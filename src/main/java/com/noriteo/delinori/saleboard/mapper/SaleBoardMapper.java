@@ -14,4 +14,6 @@ public interface SaleBoardMapper {
     int getCount(PageRequestDTO pageRequestDTO);
 
     SaleBoard select(Long sno);
+
+    int delete(Long sno);
 }

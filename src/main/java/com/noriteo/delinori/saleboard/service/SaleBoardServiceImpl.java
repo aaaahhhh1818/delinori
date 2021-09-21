@@ -55,4 +55,9 @@ public class SaleBoardServiceImpl implements SaleBoardService {
         return null;
     }
 
+    @Override
+    public boolean remove(Long sno) {
+        return saleBoardMapper.delete(sno) > 0;
+    }
+
 }

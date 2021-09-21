@@ -12,4 +12,6 @@ public interface SaleBoardService {
 
     SaleBoardDTO read(Long sno);
 
+    boolean remove(Long sno);
+
 }

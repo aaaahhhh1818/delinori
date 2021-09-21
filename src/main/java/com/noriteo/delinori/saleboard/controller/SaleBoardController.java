@@ -87,4 +87,16 @@ public class SaleBoardController {
 
     }
 
+    @PostMapping("/remove")
+    public String remove(Long sno, RedirectAttributes redirectAttributes) {
+
+        log.info("c       remove : " + sno);
+
+        if(saleBoardService.remove(sno)) {
+            log.info(sno);
+            redirectAttributes.addFlashAttribute("result", "success");
+        }
+        return "redirect:/saleboard/list";
+    }
+
 }
