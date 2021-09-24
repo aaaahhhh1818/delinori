@@ -1,7 +1,7 @@
-package com.noriteo.delinori.reply.service;
+package com.noriteo.delinori.saleboard.service;
 
-import com.noriteo.delinori.reply.domain.Reply;
-import com.noriteo.delinori.reply.dto.ReplyDTO;
+import com.noriteo.delinori.saleboard.domain.Reply;
+import com.noriteo.delinori.saleboard.dto.ReplyDTO;
 
 import java.util.List;
 

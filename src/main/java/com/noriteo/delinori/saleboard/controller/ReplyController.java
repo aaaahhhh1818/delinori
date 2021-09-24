@@ -1,7 +1,7 @@
-package com.noriteo.delinori.reply.controller;
+package com.noriteo.delinori.saleboard.controller;
 
-import com.noriteo.delinori.reply.dto.ReplyDTO;
-import com.noriteo.delinori.reply.service.ReplyService;
+import com.noriteo.delinori.saleboard.dto.ReplyDTO;
+import com.noriteo.delinori.saleboard.service.ReplyService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;

@@ -155,7 +155,7 @@
 </div>
 <!-- Modal End -->
 
-<form id="actionForm" action="/board/list" method="get">
+<form id="actionForm" action="/saleboard/list" method="get">
     <input type="hidden" name="page" value="${pageMaker.page}">
     <input type="hidden" name="size" value="${pageMaker.size}">
 

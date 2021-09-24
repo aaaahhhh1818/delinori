@@ -1,4 +1,4 @@
-package com.noriteo.delinori.reply.dto;
+package com.noriteo.delinori.saleboard.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

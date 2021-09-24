@@ -1,4 +1,4 @@
-package com.noriteo.delinori.reply.domain;
+package com.noriteo.delinori.saleboard.domain;
 
 import lombok.*;
 

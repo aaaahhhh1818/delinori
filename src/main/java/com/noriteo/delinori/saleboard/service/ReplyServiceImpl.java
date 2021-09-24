@@ -1,11 +1,12 @@
-package com.noriteo.delinori.reply.service;
+package com.noriteo.delinori.saleboard.service;
 
-import com.noriteo.delinori.reply.dto.ReplyDTO;
-import com.noriteo.delinori.reply.mapper.ReplyMapper;
+import com.noriteo.delinori.saleboard.dto.ReplyDTO;
+import com.noriteo.delinori.saleboard.mapper.ReplyMapper;
 import com.noriteo.delinori.saleboard.mapper.SaleBoardMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,6 +20,7 @@ public class ReplyServiceImpl implements ReplyService {
     private final SaleBoardMapper saleBoardMapper;
 
     @Override
+    @Transactional
     public int add(ReplyDTO replyDTO) {
 
         int count = replyMapper.insert(dtoToEntity(replyDTO));

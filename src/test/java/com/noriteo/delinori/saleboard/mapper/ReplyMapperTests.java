@@ -1,9 +1,9 @@
-package com.noriteo.delinori.reply.mapper;
+package com.noriteo.delinori.saleboard.mapper;
 
 import com.noriteo.delinori.common.config.RootConfig;
-import com.noriteo.delinori.reply.config.ReplyRootConfig;
-import com.noriteo.delinori.reply.domain.Reply;
+import com.noriteo.delinori.saleboard.domain.Reply;
 import com.noriteo.delinori.saleboard.config.SaleBoardRootConfig;
+import com.noriteo.delinori.saleboard.mapper.ReplyMapper;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,7 +15,7 @@ import java.util.stream.IntStream;
 
 @Log4j2
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration( classes = {ReplyRootConfig.class, RootConfig.class, SaleBoardRootConfig.class})
+@ContextConfiguration( classes = {RootConfig.class, SaleBoardRootConfig.class})
 public class ReplyMapperTests {
 
     @Autowired(required = false)

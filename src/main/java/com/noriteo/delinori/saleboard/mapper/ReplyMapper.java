@@ -1,6 +1,6 @@
-package com.noriteo.delinori.reply.mapper;
+package com.noriteo.delinori.saleboard.mapper;
 
-import com.noriteo.delinori.reply.domain.Reply;
+import com.noriteo.delinori.saleboard.domain.Reply;
 
 import java.util.List;
 

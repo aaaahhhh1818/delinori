@@ -147,20 +147,27 @@
 
             const {rno, sno, reply, replyer, replyDate, modDate} = {...replyObj}
 
-            const temp = `<div class="card mb-4 py-2 border-left-primary shadow">
-                          <div class="col-auto " align="right">
-                          <a href="javascript:modReply(\${rno})" class="fas fa-tools fa-1x text-gray-300 m-1"></a>
-                          <a href="javascript:delReply(\${rno})" class="fas fa-trash fa-1x text-gray-300 m-1" data-rno="\${rno}"></a></div>
-                          <div class="ml-4 mb-3">
-                          <div class="row no-gutters align-items-start">
-                          <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                          \${rno}--\${replyer}</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800 replyMod" data-rno='\${rno}' data-replyer='\${replyer}'>
-                          \${reply}</div>
-                          <div class="text-xs font-weight-light text-secondary text-uppercase mb-1">
-                          \${replyDate}</div>
-                          </div></div></div></div>`
+            const temp = `<div class="card mb-4 py-2 border-left-primary shadow replybox">
+                            <div class="col-auto " align="right">
+                                <a href="javascript:modReply(\${rno})" class="fas fa-tools fa-1x text-gray-300 m-1"></a>
+                                <a href="javascript:deleteReply(\${rno})" class="fas fa-trash fa-1x text-gray-300 m-1" data-rno="\${rno}"></a>
+                            </div>
+                            <div class="ml-4 mb-3">
+                                <div class="row no-gutters align-items-start">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            \${rno}--\${replyer}
+                                    </div>
+                                    <div class="mod">
+                                         <div class="h5 mb-0 font-weight-bold text-gray-800 reply-text" data-rno='\${rno}' data-replyer='\${replyer}'>
+                                            \${reply}
+                                         </div>
+                                         <div class="text-xs font-weight-light text-secondary text-uppercase mb-1">
+                                            \${replyDate}
+                                         </div>
+                                    </div>
+                                </div>
+                            </div></div></div>`
 
             return temp
 
@@ -209,29 +216,47 @@
 
     }, false)
 
-    // function modReply(rno) {
-    //
-    //     var str = document.querySelector(".replyMod")
-    //     var modStr = `<input type="text" class="form-control bg-light border-0 small"
-    //                                placeholder="수정할 댓글을 입력해주세요"
-    //                                aria-label="reply" aria-describedby="basic-addon2"
-    //                                name="reply">
-    //                     </div>
-    //                     <div class="input-group-append">
-    //                         <button class="btn btn-primary operBtn" type="button">
-    //                             작성
-    //                         </button>
-    //                     </div>`
-    //
-    //     modOper = str.replaceWith(modStr)
-    //
-    //     str.innerHTML = modOper
-    //
-    // }
+
+    //수정
+    function modReply(rno) {
+
+        const str = document.querySelector(".mod")
+
+        const modStr = `<input type="text" class="form-control bg-light border-0 small"
+                             placeholder="수정할 댓글을 입력해주세요"
+                             aria-label="reply" aria-describedby="basic-addon2"
+                             name="replyMod">
+                      <div class="input-group-append">
+                          <button class="btn btn-primary btnModReply" type="button">
+                              작성
+                          </button>
+                      </div>`
+
+        const target = str.children
+
+        $(target).hide()
+
+        str.innerHTML = modStr
+
+        document.querySelector(".btnModReply").addEventListener("click", (e) => {
+
+            const modreply = document.querySelector("input[name='replyMod']").value
+
+            const replyObj = {rno: rno , reply: modreply }
+
+            console.log(replyObj)
+
+            modifyReply(replyObj).then(result => {
+                getList()
+            })
+
+        }, false)
+
+    }
 
 
-
-    function delReply(rno) {
+    //삭제
+    function deleteReply(rno) {
 
         console.log(rno);
         removeReply(rno).then(result => {
